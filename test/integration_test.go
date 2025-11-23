@@ -12,7 +12,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package test
+package integration_test
 
 import (
 	"encoding/json"
@@ -42,12 +42,12 @@ func TestMain(m *testing.M) {
 	fmt.Println("*****Test Suite Started*****")
 	// exec setUp function
 	setUp()
-	// exec test and this returns an exit code to pass to os
+	// exec integration_test and this returns an exit code to pass to os
 	retCode := m.Run()
 	// exec tearDown function
 	tearDown()
 	// If exit code is distinct of zero,
-	// the test will be failed (red)
+	// the integration_test will be failed (red)
 	os.Exit(retCode)
 }
 
@@ -92,15 +92,15 @@ func tearDown() {
 func loadTestData(key string) {
 	var testData map[string]interface{}
 	// read file
-	data, err := ioutil.ReadFile("test.json")
+	data, err := ioutil.ReadFile("integration_test.json")
 	if err != nil {
-		fmt.Println("Failed to read test file:", err)
+		fmt.Println("Failed to read integration_test file:", err)
 	}
 
 	// unmarshall it
 	err = json.Unmarshal(data, &testData)
 	if err != nil {
-		fmt.Println("Failed to unmarshall test file:", err)
+		fmt.Println("Failed to unmarshall integration_test file:", err)
 	}
 
 	currentData := testData[key].(map[string]interface{})

@@ -15,6 +15,7 @@
 
 This package include message processor to process message based on their topics
 */
+
 package processor
 
 import (
@@ -27,12 +28,12 @@ import (
 type AccountDeletionMessageProcessor struct {
 }
 
-// Implemenation for processing account deletion messages
+// Process is for processing account deletion messages
 // Input
 //
 //	message to be processed
 func (a AccountDeletionMessageProcessor) Process(message *pojo.Message) {
-	fmt.Println("Accoutn deletion processing")
+	fmt.Println("Account deletion processing")
 	data := message.Notification.PayloadData
 	fmt.Println(fmt.Sprintf(`\n==========================\nUser ID: %s`, data.UserID))
 	fmt.Println(fmt.Sprintf("Username: %s\n==========================\n", data.Username))

@@ -18,13 +18,14 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"net/http"
+	"strings"
+
 	constants "github.com/JohnAD/event-notification-golang-sdk/lib/constants"
 	sdk "github.com/JohnAD/event-notification-golang-sdk/lib/notification"
 	"github.com/JohnAD/event-notification-golang-sdk/lib/pojo"
 	"github.com/gin-gonic/gin"
-	"io/ioutil"
-	"net/http"
-	"strings"
 )
 
 // Process Notification request

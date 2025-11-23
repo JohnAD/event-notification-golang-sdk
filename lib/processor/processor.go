@@ -15,6 +15,7 @@
 
 This package include message processor to process message based on their topics
 */
+
 package processor
 
 import (
@@ -22,7 +23,7 @@ import (
 	pojo "github.com/JohnAD/event-notification-golang-sdk/lib/pojo"
 )
 
-// Processor is generice processor for message processing by topics
+// Processor is generic processor for message processing by topics
 type Processor interface {
 	Process(*pojo.Message)
 }

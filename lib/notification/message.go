@@ -18,14 +18,16 @@ This package implement two methods required for Event Notification Processing
 	ValidateAndProcess - To validate signature and perform necessary action for received notification
 	ValidateEndpoint - To Validate url endpoint readiness based on challenge code and response
 */
+
 package notification
 
 import (
+	"strings"
+
 	constants "github.com/JohnAD/event-notification-golang-sdk/lib/constants"
 	helper "github.com/JohnAD/event-notification-golang-sdk/lib/helper"
 	pojo "github.com/JohnAD/event-notification-golang-sdk/lib/pojo"
 	processor "github.com/JohnAD/event-notification-golang-sdk/lib/processor"
-	"strings"
 )
 
 // Returns CustomEnv object
@@ -38,7 +40,14 @@ import (
 //
 //	customEnvironment - details of specified env
 func getCustomEnv(env *pojo.Environment, environment string) *pojo.CustomEnvironment {
-	return &pojo.CustomEnvironment{env.BaseURL, env.RedirectURI, env.ClientID, env.ClientSecret, env.DevID, environment}
+	return &pojo.CustomEnvironment{
+		BaseURL:      env.BaseURL,
+		RedirectURI:  env.RedirectURI,
+		ClientID:     env.ClientID,
+		ClientSecret: env.ClientSecret,
+		DevID:        env.DevID,
+		Environment:  environment,
+	}
 }
 
 // ValidateAndProcess is to validate request and process the message

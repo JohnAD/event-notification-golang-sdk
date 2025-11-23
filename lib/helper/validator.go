@@ -15,6 +15,7 @@
 
 This package contains required helper functions
 */
+
 package helper
 
 import (
@@ -49,7 +50,10 @@ func getXeBaySignatureHeader(signatureHeader string) *pojo.XeBaySignatureHeader 
 		panic(err)
 	}
 	var signature pojo.XeBaySignatureHeader
-	json.Unmarshal([]byte(rawDecodedText), &signature)
+	err = json.Unmarshal([]byte(rawDecodedText), &signature)
+	if err != nil {
+		panic(err)
+	}
 	return &signature
 }
 
@@ -81,12 +85,14 @@ func formatKey(key string) string {
 //
 //	string Success/Error
 func ValidateSignature(message *pojo.Message, signatureHeader string, config *pojo.CustomEnvironment) string {
-
+	fmt.Println(">>>" + signatureHeader)
 	// Base64 decode the signatureHeader and convert to JSON
 	xeBaySignature := getXeBaySignatureHeader(signatureHeader)
+	fmt.Println(">>>>" + xeBaySignature.Kid)
 
 	// // Get the public key
 	publicKey := service.GetPublicKey(xeBaySignature.Kid, config)
+	fmt.Println(">>>>>" + publicKey.Key)
 
 	var pubPEMData = []byte(formatKey(publicKey.Key))
 	block, _ := pem.Decode(pubPEMData)

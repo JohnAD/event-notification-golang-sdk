@@ -45,7 +45,7 @@ GoLang 1.17.1 or higher
 Using Go get:
 
 ```shell
-go get github.com/ebay/event-notification-golang-sdk
+go get github.com/JohnAD/event-notification-golang-sdk
 ```
 
 **Configure**
@@ -92,12 +92,23 @@ Note: You can refer to [example.go](examples/example.go) for an example of how t
 
 **Running the example**
 
+copy the "examples/example.go" file to a local directory.
+
 ```shell
-cd examples
 go run example.go
 ```
 
 Client Credentials Configuration Sample: [example.go](examples/example.go).
+
+**Running the Integration Test**
+
+In the `test/test.json` document, the "VALID" object must contain legitimate credentials as this is a live test. Modify
+that file first. Otherwise you will see many "Invalid PEM Block" errors.
+
+```shell
+cd test
+go test
+```
 
 **Note for Production deployment**
 

@@ -14,16 +14,18 @@
 *
 This package include service calls
 */
+
 package service
 
 import (
 	b64 "encoding/base64"
 	"encoding/json"
 	"fmt"
-	lru "github.com/hashicorp/golang-lru"
 	"net/http"
 	"net/url"
 	"strings"
+
+	lru "github.com/hashicorp/golang-lru"
 
 	constants "github.com/JohnAD/event-notification-golang-sdk/lib/constants"
 	pojo "github.com/JohnAD/event-notification-golang-sdk/lib/pojo"

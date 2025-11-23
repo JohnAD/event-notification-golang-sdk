@@ -14,9 +14,10 @@
  *
 This package contains all required pojo
 */
+
 package pojo
 
-//Config is configuration file object
+// Config is configuration file object
 type Config struct {
 	Sandbox           Environment `json:"SANDBOX"`
 	Production        Environment `json:"PRODUCTION"`
@@ -24,7 +25,7 @@ type Config struct {
 	VerificationToken string      `json:"verificationToken"`
 }
 
-//Environment is configuration environment specific file
+// Environment is configuration environment specific file
 type Environment struct {
 	BaseURL      string `json:"baseUrl"`
 	RedirectURI  string `json:"redirectUri"`
@@ -33,7 +34,7 @@ type Environment struct {
 	DevID        string `json:"devid"`
 }
 
-//CustomEnvironment is configuration environment specific file
+// CustomEnvironment is configuration environment specific file
 type CustomEnvironment struct {
 	BaseURL      string `json:"baseUrl"`
 	RedirectURI  string `json:"redirectUri"`
@@ -43,7 +44,7 @@ type CustomEnvironment struct {
 	Environment  string
 }
 
-//Payload is payload object
+// Payload is payload object
 type Payload struct {
 	Signature string   `json:"signature"`
 	Message   Message  `json:"message"`
@@ -51,20 +52,20 @@ type Payload struct {
 	PublicKey string   `json:"public_key"`
 }
 
-//Message is norification message
+// Message is norification message
 type Message struct {
 	Metadata     Metadata     `json:"metadata"`
 	Notification Notification `json:"notification"`
 }
 
-//Metadata is notification metadata
+// Metadata is notification metadata
 type Metadata struct {
 	Topic         string `json:"topic"`
 	SchemaVersion string `json:"schemaVersion"`
 	Deprecated    bool   `json:"deprecated"`
 }
 
-//Notification is notification object
+// Notification is notification object
 type Notification struct {
 	NotificationID      string      `json:"notificationId"`
 	EventDate           string      `json:"eventDate"`
@@ -73,21 +74,21 @@ type Notification struct {
 	PayloadData         PayloadData `json:"data"`
 }
 
-//PayloadData is user payload
+// PayloadData is user payload
 type PayloadData struct {
 	Username  string `json:"username"`
 	UserID    string `json:"userId"`
 	EiasToken string `json:"eiasToken"`
 }
 
-//Response is response object
+// Response is response object
 type Response struct {
 	Key       string `json:"key"`
 	Algorithm string `json:"algorithm"`
 	Digest    string `json:"digest"`
 }
 
-//XeBaySignatureHeader is pojo for signature creation
+// XeBaySignatureHeader is pojo for signature creation
 type XeBaySignatureHeader struct {
 	Alg       string `json:"alg"`
 	Digest    string `json:"digest"`
