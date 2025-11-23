@@ -18,18 +18,19 @@ package main
 import (
 	"encoding/json"
 	"fmt"
+	constants "github.com/JohnAD/event-notification-golang-sdk/lib/constants"
+	sdk "github.com/JohnAD/event-notification-golang-sdk/lib/notification"
+	"github.com/JohnAD/event-notification-golang-sdk/lib/pojo"
 	"github.com/gin-gonic/gin"
-	constants "github.com/ebay/event-notification-golang-sdk.git/lib/constants"
-	sdk "github.com/ebay/event-notification-golang-sdk.git/lib/notification"
-	"github.com/ebay/event-notification-golang-sdk.git/lib/pojo"
 	"io/ioutil"
 	"net/http"
 	"strings"
 )
 
-//Process Notification request
-//This function handles processing message notification resquest and respond accordingly
-//Input
+// Process Notification request
+// This function handles processing message notification resquest and respond accordingly
+// Input
+//
 //	gin.Context - Request/Response context
 func processNotification(c *gin.Context) {
 	var body pojo.Message
@@ -49,9 +50,10 @@ func processNotification(c *gin.Context) {
 	}
 }
 
-//Get challenge code
-//This function handles in get challenge code request and respond accordingly
-//Input
+// Get challenge code
+// This function handles in get challenge code request and respond accordingly
+// Input
+//
 //	gin.Context - Request/Response context
 func getChallengeCode(c *gin.Context) {
 	challengeCode := c.Query("challenge_code")
@@ -71,11 +73,14 @@ func getChallengeCode(c *gin.Context) {
 
 }
 
-//To load config data
-//This functions takes in config object and load data from config.json file.
-//Input
+// To load config data
+// This functions takes in config object and load data from config.json file.
+// Input
+//
 //	Config - reference to Config object
-//Returns
+//
+// Returns
+//
 //	error response on reading/unmarshalling failure
 func loadConfig(*pojo.Config) string {
 
