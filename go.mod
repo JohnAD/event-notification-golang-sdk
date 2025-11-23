@@ -1,4 +1,4 @@
-module github.com/ebay/event-notification-golang-sdk.git
+module github.com/JohnAD/event-notification-golang-sdk
 
 go 1.17
 
